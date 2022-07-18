@@ -6,8 +6,10 @@ from setuptools import setup, find_packages
 
 setup(
     name="kkdbs",
-    version="0.1.0",
-    description="数据库连接池",
+    version="0.2.0",
+    description=(
+        "'mysql','redis','数据库连接池'"
+    ),
     long_description="数据库连接池",
 
     url="https://github.com/vekair/kkdbs.git",
@@ -17,7 +19,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     platforms="any",
-    install_requires=["pymysql", "PooledDB==1.3", "logging"]
+    install_requires=["pymysql", "PooledDB==1.3", "logging", "redis"]
 )
 
 """
