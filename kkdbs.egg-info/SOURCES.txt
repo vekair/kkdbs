@@ -3,6 +3,7 @@ setup.py
 kkdbs/__init__.py
 kkdbs/mysql_execute.py
 kkdbs/mysql_pool.py
+kkdbs/redis_pool.py
 kkdbs.egg-info/PKG-INFO
 kkdbs.egg-info/SOURCES.txt
 kkdbs.egg-info/dependency_links.txt
