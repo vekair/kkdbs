@@ -1,0 +1,3 @@
+pymysql
+PooledDB==1.3
+logging
