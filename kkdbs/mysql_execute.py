@@ -2,7 +2,7 @@
 # @Author: vekair
 
 import logging
-from mysql_link_pool import MysqlConnectionPool
+from mysql_pool import MysqlConnectionPool
 log = logging.Logger(__name__)
 
 class MysqlExecute():
