@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     platforms="any",
-    install_requires=["pymysql", "DBUtils==1.3", "logging", "redis"]
+    install_requires=["pymysql", "DBUtils==1.3", "redis"]
 )
 
 """
@@ -28,7 +28,7 @@ python3 setup.py sdist
 
 twine upload dist/*
 
-python -m pip install kkexcel --upgrade -i https://pypi.org/simple   # 及时的方式，不用等待 阿里云 豆瓣 同步
+python -m pip install kkdbs --upgrade -i https://pypi.org/simple   # 及时的方式，不用等待 阿里云 豆瓣 同步
 
 
 """
