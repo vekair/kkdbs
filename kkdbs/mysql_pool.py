@@ -8,19 +8,20 @@ class MysqlConnectionPool():
     __pool = None
 
     def __init__(self,
-                 db, DB_MIN_CACHED=None, DB_MAX_CACHED=None, DB_MAX_SHARED=None, DB_MAX_CONNECTIONS=None,
-                 DB_MAX_USAGE=None, MYSQL_DB_HOST=None, MYSQL_DB_USER=None, MYSQL_DB_PWD=None, MYSQL_PORT=None,
+                 host, db, user, password, port=None,
+                 mix_cached=None, max_cached=None, max_shared=None, max_connections=None,
+                 max_usage=None,
                  ):
+        self.MYSQL_DB_HOST = host
         self.db = db
-        self.DB_MIN_CACHED = 5 if DB_MIN_CACHED is None else DB_MIN_CACHED
-        self.DB_MAX_CACHED = 10 if DB_MAX_CACHED is None else DB_MAX_CACHED
-        self.DB_MAX_SHARED = 30 if DB_MAX_SHARED is None else DB_MAX_SHARED
-        self.DB_MAX_CONNECTIONS = 50 if DB_MAX_CONNECTIONS is None else DB_MAX_CONNECTIONS
-        self.DB_MAX_USAGE = 0 if DB_MAX_USAGE is None else DB_MAX_USAGE
-        self.MYSQL_DB_HOST = MYSQL_DB_HOST
-        self.MYSQL_DB_USER = MYSQL_DB_USER
-        self.MYSQL_DB_PWD = MYSQL_DB_PWD
-        self.MYSQL_PORT = 3306 if MYSQL_PORT is None else MYSQL_PORT
+        self.MYSQL_DB_USER = user
+        self.MYSQL_DB_PWD = password
+        self.MYSQL_PORT = 3306 if port is None else port
+        self.DB_MIN_CACHED = 5 if mix_cached is None else mix_cached
+        self.DB_MAX_CACHED = 10 if max_cached is None else max_cached
+        self.DB_MAX_SHARED = 30 if max_shared is None else max_shared
+        self.DB_MAX_CONNECTIONS = 50 if max_connections is None else max_connections
+        self.DB_MAX_USAGE = 0 if max_usage is None else max_usage
 
         """
         DB_MIN_CACHED:最少的空闲连接数，如果空闲连接数小于这个数，pool会创建一个新的连接
@@ -66,7 +67,7 @@ class MysqlConnectionPool():
             self.__pool.close()
 
     # 关闭连接归还给链接池
-    def close(self):
+    def _close(self):
         self.cursor.close()
         self.conn.close()
 

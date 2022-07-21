@@ -2,12 +2,10 @@
 # @Author: vekair
 
 import logging
-from mysql_pool import MysqlConnectionPool
+from kkdbs.mysql_pool import MysqlConnectionPool
 log = logging.Logger(__name__)
 
-class MysqlExecute():
-    def __init__(self, db):
-        self.db = MysqlConnectionPool(db)
+class MysqlExecute(MysqlConnectionPool):
 
     # 封装执行命令
     def execute(self, sql, param=None, autoclose=False):
@@ -18,7 +16,7 @@ class MysqlExecute():
         :param autoclose: 是否关闭连接
         :return: 返回连接conn和游标cursor
         """
-        cursor, conn = self.db.getconn()  # 从连接池获取连接
+        cursor, conn = self.getconn()  # 从连接池获取连接
 
         count = 0
         try:
