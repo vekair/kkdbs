@@ -1,4 +1,3 @@
 pymysql
 DBUtils==1.3
-logging
 redis

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: kkdbs
-Version: 0.2.1
+Version: 0.2.2
 Summary: 'mysql','redis','数据库连接池'
 Home-page: https://github.com/vekair/kkdbs.git
 Author: vekair
