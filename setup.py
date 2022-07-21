@@ -19,7 +19,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     platforms="any",
-    install_requires=["pymysql", "PooledDB==1.3", "logging", "redis"]
+    install_requires=["pymysql", "DBUtils==1.3", "logging", "redis"]
 )
 
 """
