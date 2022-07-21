@@ -6,7 +6,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="kkdbs",
-    version="0.2.0",
+    version="0.2.1",
     description=(
         "'mysql','redis','数据库连接池'"
     ),
